@@ -1,5 +1,11 @@
 # PHP-LEMP-LAMP-like-Docker-Starter-Stack
 
+![PHP](https://img.shields.io/badge/PHP-8.4-blue?logo=php)
+![Docker](https://img.shields.io/badge/Built%20with-Docker-blue?logo=docker)
+![Docker Compose](https://img.shields.io/badge/Docker%20Compose-Supported-blue?logo=docker)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![License](https://img.shields.io/github/license/wailshalabi/PHP-LEMP-LAMP-like-Docker-Starter-Stack)
+
 A lightweight, Docker-based PHP development starter stack. It provides a small, local development environment with the usual services you need to develop and test PHP applications:
 
 - PHP (Apache) with HTTPS using self-signed certs

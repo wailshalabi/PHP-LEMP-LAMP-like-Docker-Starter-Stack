@@ -29,7 +29,7 @@ final class MailController
         $email = (new Email())
             ->from($from)
             ->to($to)
-            ->subject('Test email from PHP Docker Starter')
+            ->subject('Test email from PHP LAMP Like Docker Starter Stack')
             ->text("If you're seeing this in Mailpit, SMTP is working.\n\nTime: " . date('c'));
 
         $this->mailer->send($email);
