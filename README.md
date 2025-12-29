@@ -8,6 +8,8 @@ A lightweight, Docker-based PHP development starter stack. It provides a small, 
 - phpMyAdmin
 - Mailpit (SMTP + web UI)
 
+![PHP-MEMP-LAMP-Docker-Starter-Stack](images/screenshot.png)
+
 The `www/` folder contains a tiny demo application (FastRoute + PHP-DI + Twig) so you can verify the stack quickly: PHP, MySQL, Redis, Mail, and OpenAPI/Swagger endpoints are all wired up.
 
 **This repository is intended for local development and testing only.**
@@ -84,6 +86,8 @@ Common values in `www/.env.example`:
 
 Self-signed certs live in `config/ssl/` and are mounted into Apache at `/etc/apache2/ssl/`. See `config/ssl/README.md` for generation and trust instructions.
 
+See `config/ssl/README.md` for more details about SSL generation and `docker-compose.yml` for all environment variables and port mappings.
+
 ## Directory layout (important parts)
 
 - `docker-compose.yml` — service definitions (webserver, database, redis, phpmyadmin, mailpit)
@@ -99,16 +103,9 @@ Self-signed certs live in `config/ssl/` and are mounted into Apache at `/etc/apa
 - If the demo app cannot connect to the database or redis, ensure containers are running (`make ps`) and check logs (`make logs`).
 - Composer will copy `www/.env.example` to `www/.env` on install if you don't have one — edit the copied file to adjust credentials.
 
-## Contributing
 
-This is a small starter stack. If you'd like to improve documentation, add features, or fix issues please open a PR.
-
----
-
-See `config/ssl/README.md` for more details about SSL generation and `docker-compose.yml` for all environment variables and port mappings.
-
-### Security disclaimer
+## Security disclaimer
 This project is for educational purposes only. Do not use this implementation directly in production. Real systems should use secure key management, durable refresh token storage, and proper monitoring.
 
-### License
+## License
 This demo is provided as-is for learning and experimentation.
