@@ -8,9 +8,11 @@ A lightweight, Docker-based PHP development starter stack. It provides a small, 
 - phpMyAdmin
 - Mailpit (SMTP + web UI)
 
-![PHP-MEMP-LAMP-Docker-Starter-Stack](images/screenshot.png)
-
 The `www/` folder contains a tiny demo application (FastRoute + PHP-DI + Twig) so you can verify the stack quickly: PHP, MySQL, Redis, Mail, and OpenAPI/Swagger endpoints are all wired up.
+
+## Screenshot
+
+![PHP-MEMP-LAMP-Docker-Starter-Stack](images/screenshot.png)
 
 **This repository is intended for local development and testing only.**
 
@@ -47,6 +49,70 @@ After that the demo app will be available at `http://localhost` and `https://loc
 - `make ps` — `docker compose ps` (list containers).
 - `make app-install` — runs `composer install` inside the `webserver` container.
 - `make shell` — open a shell in the `webserver` container.
+
+## No `make` available? (alternatives)
+
+If you don't have `make` on your system (common on Windows), you can run the equivalent commands directly. Examples below assume you're running PowerShell from the project root.
+
+- Generate local SSL certs (requires `openssl` on your PATH):
+
+```powershell
+mkdir -Force config/ssl
+openssl req -x509 -nodes -newkey rsa:2048 -days 825 `
+	-keyout config/ssl/cert-key.pem `
+	-out config/ssl/cert.pem `
+	-config config/ssl/openssl-localhost.cnf
+```
+
+- Remove generated certs (alternative to `make ssl-clean`):
+
+```powershell
+Remove-Item -Force config/ssl/cert.pem, config/ssl/cert-key.pem
+```
+
+- Start services (alternative to `make up`):
+
+```powershell
+docker compose up -d --build
+```
+
+- Stop services (alternative to `make down`):
+
+```powershell
+docker compose down
+```
+
+- Rebuild images (alternative to `make build`):
+
+```powershell
+docker compose build --no-cache
+```
+
+- Install PHP dependencies inside the webserver (alternative to `make app-install`):
+
+```powershell
+docker compose exec -T webserver composer install --no-interaction
+```
+
+- View logs (alternative to `make logs`):
+
+```powershell
+docker compose logs -f --tail=200
+```
+
+- List containers (alternative to `make ps`):
+
+```powershell
+docker compose ps
+```
+
+- Open a shell in the webserver container (alternative to `make shell`):
+
+```powershell
+docker compose exec webserver bash
+```
+
+If you prefer POSIX shells (Linux/macOS) the same `docker compose` and `openssl` commands work there as well (use regular line-continuation `\` or a single-line command).
 
 ## Default ports & URLs
 
