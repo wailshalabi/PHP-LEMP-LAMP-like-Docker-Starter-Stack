@@ -17,7 +17,9 @@ use Symfony\Component\Mime\Email;
  */
 final class MailController
 {
-    public function __construct(private Mailer $mailer) {}
+    public function __construct(private Mailer $mailer)
+    {
+    }
 
     public function sendTest(): array
     {
@@ -28,7 +30,7 @@ final class MailController
             ->from($from)
             ->to($to)
             ->subject('Test email from PHP Docker Starter')
-            ->text("If you're seeing this in Mailpit, SMTP is working.\n\nTime: ".date('c'));
+            ->text("If you're seeing this in Mailpit, SMTP is working.\n\nTime: " . date('c'));
 
         $this->mailer->send($email);
 

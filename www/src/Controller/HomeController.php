@@ -8,7 +8,9 @@ use Twig\Environment;
 
 final class HomeController
 {
-    public function __construct(private Environment $twig) {}
+    public function __construct(private Environment $twig)
+    {
+    }
 
     public function home(): Response
     {

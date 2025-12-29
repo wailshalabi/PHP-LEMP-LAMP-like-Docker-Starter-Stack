@@ -16,7 +16,9 @@ use Doctrine\DBAL\Connection;
  */
 final class DbController
 {
-    public function __construct(private Connection $db) {}
+    public function __construct(private Connection $db)
+    {
+    }
 
     public function test(): array
     {

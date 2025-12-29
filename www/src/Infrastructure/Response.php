@@ -9,7 +9,8 @@ final class Response
         private int $status = 200,
         private array $headers = [],
         private string $body = ''
-    ) {}
+    ) {
+    }
 
     public static function json(mixed $data, int $status = 200): self
     {

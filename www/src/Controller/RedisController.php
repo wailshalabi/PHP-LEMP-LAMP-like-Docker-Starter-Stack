@@ -16,7 +16,9 @@ use Predis\Client;
  */
 final class RedisController
 {
-    public function __construct(private Client $redis) {}
+    public function __construct(private Client $redis)
+    {
+    }
 
     public function test(): array
     {
