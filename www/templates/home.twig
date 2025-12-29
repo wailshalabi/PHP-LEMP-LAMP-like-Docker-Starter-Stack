@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; }
+    code { background: #f4f4f4; padding: .15rem .35rem; border-radius: .25rem; }
+    ul { line-height: 1.8; }
+  </style>
+</head>
+<body>
+  <h1>{{ title }}</h1>
+  <p>
+  A lightweight, Docker-based PHP development stack that includes:
+    <ul>
+    <li>PHP (Apache) + HTTPS (SSL)</li>
+    <li>MySQL</li>
+    <li>Redis</li>
+    <li>phpMyAdmin</li>
+    <li>Mailpit (mail catcher)</li>
+    </ul>
+  </p>
+
+  <h2>Checks</h2>
+  <ul>
+    <li><a href="/health">/health</a> – basic JSON</li>
+    <li><a href="/db">/db</a> – MySQL (Doctrine DBAL)</li>
+    <li><a href="/redis">/redis</a> – Redis</li>
+    <li><a href="/mail">/mail</a> – SMTP to Mailpit</li>
+    <li><a href="/api/hello">/api/hello</a> – example API</li>
+    <li><a href="/api/docs">/api/docs</a> – Swagger UI</li>
+  </ul>
+
+  <p>phpMyAdmin: <code>http://localhost:{{ pma_port|default('8080') }}</code></p>
+  <p>Mailpit UI: <code>http://localhost:{{ mailpit_port|default('8025') }}</code></p>
+</body>
+</html>

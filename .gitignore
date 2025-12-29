@@ -1,0 +1,20 @@
+# Generated SSL certs/keys
+config/ssl/*.pem
+config/ssl/*.key
+config/ssl/*.crt
+config/ssl/*.csr
+!config/ssl/.gitkeep
+!config/ssl/README.md
+!config/ssl/openssl-localhost.cnf
+
+# Runtime data
+data/*
+logs/*
+
+# PHP deps & local env
+www/vendor/*
+www/.env
+
+# Misc
+.phpunit.result.cache
+.DS_Store
