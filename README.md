@@ -169,15 +169,43 @@ See `config/ssl/README.md` for more details about SSL generation and `docker-com
 - `www/` — demo application and frontend
 - `data/` — persistent MySQL data (bind-mounted)
 
+## Symfony Console CLI
+
+This project includes a lightweight **Symfony Console–based CLI** for development and environment checks.
+The CLI runs inside the Docker PHP container and follows modern Symfony 8 best practices.
+
+### Make the console executable
+
+```bash
+docker compose exec webserver chmod +x /var/www/html/bin/console
+```
+
+### Usage
+
+```bash
+docker compose exec webserver bin/console app:status
+```
+
+### Available Commands
+
+```bash
+app:status   Show PHP CLI and container status
+```
+
+### Example Output
+
+```bash
+Symfony Console is working
+PHP Version: 8.4.16
+Memory Limit: 256M
+```
+
 ## Troubleshooting
 
 - If ports are already in use, update the host ports in your environment or in the compose `.env` file.
 - If the demo app cannot connect to the database or redis, ensure containers are running (`make ps`) and check logs (`make logs`).
 - Composer will copy `www/.env.example` to `www/.env` on install if you don't have one — edit the copied file to adjust credentials.
 
-
 ## Security disclaimer
-This project is for educational purposes only. Do not use this implementation directly in production. Real systems should use secure key management, durable refresh token storage, and proper monitoring.
 
-## License
-This demo is provided as-is for learning and experimentation.
+This project is for educational purposes only, do not use this implementation directly in production Real systems.
